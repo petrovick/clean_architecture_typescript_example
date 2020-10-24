@@ -12,7 +12,7 @@ export class HTTPDetailOrderPresenter implements OutputPort<DetailOrder.DetailOr
 
   get view(): DetailOrderHTTPView {
     return this._view;
-  } 
+  }
 
   public show(response: DetailOrder.DetailOrderResponseDTO) {
     if (response.success) {

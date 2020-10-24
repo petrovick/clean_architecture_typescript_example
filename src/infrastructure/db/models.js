@@ -34,7 +34,7 @@ class Models {
                     return;
                 }
                 _.merge(databases[key], defaultAttributes);
-                databases[key].user = databases[key].username;
+                databases[key].user = 'root' // databases[key].username;
             });
 
         Object.keys(databases)
@@ -42,12 +42,11 @@ class Models {
                 if (databases[key].dialect !== 'mysql') {
                     return;
                 }
-
                 connections[key] = new Sequelize(
-                    databases[key].database,
-                    databases[key].username,
-                    databases[key].password,
-                    databases[key]
+                    databases[key].database,// 'mysql', // databases[key].database,
+                    databases[key].username,//'root', // databases[key].username,
+                    databases[key].password,// 'root', // databases[key].password,
+                    databases[key]//'store' // databases[key]
                 );
 
                 connections[key].dialect.supports.schemas = true;

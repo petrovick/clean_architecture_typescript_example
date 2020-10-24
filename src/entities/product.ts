@@ -28,7 +28,7 @@ export class Product extends Entity<IProductProps>{
     public static build(props: IProductProps, id?: UniqueEntityID): Result<Product> { 
         /** some domain validations here **/
         const errors: Array<string> = [];
-
+        
         if (props.price < 0) {
             errors.push('price_too_low');
         }

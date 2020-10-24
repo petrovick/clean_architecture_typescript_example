@@ -7,7 +7,9 @@ export interface InvoiceGateway {
 }
 
 export default function MixInvoiceService<TBase extends GConstructor>(Base: TBase) {
+
   return class InvoiceService extends Base implements InvoiceGateway {
+    
     private _invoiceGateway: InvoiceGateway;
 
     constructor(...args: any[]) {

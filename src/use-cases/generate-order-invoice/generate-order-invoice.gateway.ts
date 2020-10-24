@@ -1,4 +1,4 @@
-import { OrderData, InvoiceData } from "@useCases/common/dtos";
+import { OrderData, InvoiceData } from '@useCases/common/dtos';
 import { Order, UniqueEntityID } from '@entities';
 
 export interface GenerateOrderInvoiceGateway {

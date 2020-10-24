@@ -1,7 +1,7 @@
 import { Entity, UniqueEntityID } from '@entities';
 import IdentityMap from '../identity-map';
 import { MapperRegistry } from '../mapper-registry';
-import { UnitOfWork } from '../unit-of-work';4
+import { UnitOfWork } from '../unit-of-work';
 
 export interface IRepository {
   startTransaction(): void;
@@ -11,6 +11,7 @@ export interface IRepository {
   remove(e: Entity<any>): Promise<void>;
   removeCollection(entities: Entity<any>[]): Promise<void>;
   save(e: Entity<any>): Promise<void>;
+  update(e: Entity<any>): Promise<void>;
   saveCollection(entities: Entity<any>[]): Promise<void>
 }
 
@@ -44,21 +45,22 @@ export default class BaseRepository implements IRepository {
   public async abstractFindAll(entityName: string, criteria: any): Promise<Entity<any>[]> {
     const reload = (entity: Entity<any>) => {
       const loaded = this.identityMap.load(entityName, entity.id);
-
       if (!loaded) {
-        this.identityMap.add(loaded);
+        this.identityMap.add(entity);
         return entity;
       }
-
       return loaded;
     }
-
+    console.log(`entities`)
+    
     let entities = await MapperRegistry.getEntiyMapper(entityName).findAll(criteria);
+    console.log(`entities ${JSON.stringify(entities)}`)
     
     for (let i = 0; i < entities.length; i++) {
       entities[i] = reload(entities[i]);
     }
     
+    console.log(`entities-222- ${JSON.stringify(entities)}`)
     return entities;
   }
 
@@ -68,13 +70,24 @@ export default class BaseRepository implements IRepository {
     }
 
     const entityName = e.constructor.name;
+    console.log('1')
+    console.log(e.id)
     const registered = this.identityMap.load(entityName, e.id);
-
+    console.log('3')
     if (registered) {
       this.uow.registerDirty(e);
     } else {
+      console.log(`4`)
       this.uow.registerNew(e);
+      console.log(`11`)
     }
+  }
+  
+  public async update(e: Entity<any>) {
+    if (!this.uow) {
+      throw new Error('There is no started transaction');
+    }
+    this.uow.registerDirty(e);
   }
 
   public async saveCollection(entities: Entity<any>[]) {
@@ -101,8 +114,9 @@ export default class BaseRepository implements IRepository {
     if (!this.uow) {
       throw new Error('There is no started transaction');
     }
-    
+    console.log(`13`)
     await this.uow.commit();
+    console.log(`Depois do commit`)
     this.uow = undefined;
   }
 }

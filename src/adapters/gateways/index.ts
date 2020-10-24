@@ -12,3 +12,9 @@ export { OrderData, InvoiceData } from '@useCases/common/dtos'
 export const GetOrderDataGateway = MixOrderRepository(BaseRepository);
 export const GenerateOrderGateway = MixCustomerRepositoy(MixProductRepository(BaseRepository));
 export const GenerateOrderInvoiceGateway = MixInvoiceService(MixOrderRepository(BaseRepository));
+export const GetProductDataGateway = MixProductRepository(BaseRepository)
+
+export const ListProductDataGateway = MixProductRepository(BaseRepository);
+export const GenerateProductGateway = MixProductRepository(BaseRepository);
+export const UpdateProductGateway = MixProductRepository(BaseRepository);
+export const DestroyProductGateway = MixProductRepository(BaseRepository);

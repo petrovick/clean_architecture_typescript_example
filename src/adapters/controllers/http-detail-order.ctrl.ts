@@ -16,6 +16,6 @@ export class HttpDetailOrderController {
   }
 
   async run() {
-      await this._detailOrderInteractor.execute(this._input.params.id);
+    await this._detailOrderInteractor.execute(this._input.params.id);
   }
 };
