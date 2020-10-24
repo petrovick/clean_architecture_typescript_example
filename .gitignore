@@ -2,3 +2,5 @@
 /src/infrastructure/db/config.ts
 /src/infrastructure/db/databases.json
 /src/infrastructure/plugins/gerencianet/credentials
+package-lock.json
+yarn.lock
