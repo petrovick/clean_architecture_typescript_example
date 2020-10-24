@@ -51,16 +51,12 @@ export default class BaseRepository implements IRepository {
       }
       return loaded;
     }
-    console.log(`entities`)
     
     let entities = await MapperRegistry.getEntiyMapper(entityName).findAll(criteria);
-    console.log(`entities ${JSON.stringify(entities)}`)
     
     for (let i = 0; i < entities.length; i++) {
       entities[i] = reload(entities[i]);
     }
-    
-    console.log(`entities-222- ${JSON.stringify(entities)}`)
     return entities;
   }
 
