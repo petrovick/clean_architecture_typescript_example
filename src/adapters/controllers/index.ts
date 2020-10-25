@@ -8,3 +8,5 @@ export * from './http-generate-product.ctrl';
 export * from './product/http-update-product.ctrl';
 export * from './product/http-destroy-product.ctrl';
 export * from './product/http-list-product.ctrl';
+
+export * from './customer/http-detail-customer.ctrl';

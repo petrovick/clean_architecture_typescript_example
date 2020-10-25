@@ -14,3 +14,7 @@ export * as ListProduct from './product/list-product/index';
 export * as DestroyProductData from './product/destroy-product/index';
 export * as UpdateProduct from './product/update-product/index';
 export * as DestroyProduct from './product/destroy-product/index';
+
+
+export * as GetCustomerData from './common/get-customer-data/index';
+export * as DetailCustomer from './customer/detail-customer/index';

@@ -7,3 +7,5 @@ export * from './http-generate-product.ptr';
 export * from './product/http-update-product.ptr';
 export * from './product/http-destroy-product.ptr';
 export * from './product/http-list-product.ptr';
+
+export * from './customer/http-detail-customer.ptr';
