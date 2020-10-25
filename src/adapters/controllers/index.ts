@@ -11,3 +11,4 @@ export * from './product/http-list-product.ctrl';
 
 export * from './customer/http-detail-customer.ctrl';
 export * from './customer/http-generate-customer.ctrl';
+export * from './customer/http-list-customer.ctrl';

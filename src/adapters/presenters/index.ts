@@ -10,3 +10,4 @@ export * from './product/http-list-product.ptr';
 
 export * from './customer/http-detail-customer.ptr';
 export * from './customer/http-generate-customer.ptr';
+export * from './customer/http-list-customer.ptr';

@@ -20,7 +20,6 @@ export class UpdateProductInteractor {
       price: data.price
     }, new UniqueEntityID(data.id));
     
-    console.log(`Product Result:`,productResult)
 
     if (!productResult.succeeded) {
       return this._presenter.show({
@@ -36,7 +35,6 @@ export class UpdateProductInteractor {
     try {
       await this._gateway.startTransaction();
       await this._gateway.update(product);
-      console.log(`12`)
       await this._gateway.endTransaction();
     } catch (err) {
       return this._presenter.show({

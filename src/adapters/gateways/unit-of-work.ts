@@ -76,10 +76,8 @@ export class UnitOfWork implements IUnitOfWork {
     Guard.isTrue(`${obj.constructor.name} of ID ${obj.id.toValue()} already registered as Removed`, !this._isRemoved(obj));
     Guard.isTrue(`${obj.constructor.name} of ID ${obj.id.toValue()} already registered as New`, !this._isNew(obj));
     
-    console.log('5');
     this._newObjects.push(obj);
     this._identityMap.add(obj);
-    console.log(`10`);
   }
 
   public registerDirty(obj: Entity<any>) {
@@ -108,9 +106,6 @@ export class UnitOfWork implements IUnitOfWork {
 
   private async _insertNew() {
     for (const newObject of this._newObjects) {
-      console.log(`14.1`)
-      console.log(newObject)
-      console.log(`14.2`)
       MapperRegistry.getEntiyMapper(newObject.constructor.name).insert(newObject);
     }
   }
@@ -128,13 +123,8 @@ export class UnitOfWork implements IUnitOfWork {
   }
 
   public async commit() {
-    console.log(`14`)
-    console.log(this)
     await this._insertNew();
-    console.log(`15`)
     await this._updateDirty();
-    console.log(`16`)
     await this._deleteRemoved();
-    console.log(`17`)
   }
 }

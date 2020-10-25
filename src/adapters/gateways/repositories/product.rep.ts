@@ -8,7 +8,6 @@ export default function MixProductRepository<TBase extends Repository>(BaseRepos
       return product as Product;
     }
     public async getAll() : Promise<Product[]> {
-      console.log(`getAll()-222`)
       const products = await this.abstractFindAll('Product', {});
       return products as Product[]
     }

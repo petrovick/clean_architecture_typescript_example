@@ -7,5 +7,10 @@ export default function MixCustomerRepository<TBase extends Repository>(Base: TB
       const customer = await this.abstractFind('Customer', customerId);
       return customer as Customer;
     }
+
+    public async getAll(): Promise<Customer[]> {
+      const customers =await this.abstractFindAll('Customer', {});
+      return customers as Customer[]
+    }
   }
 }

@@ -71,7 +71,6 @@ export default abstract class SQLMapper implements Gateways.Mapper {
   };
 
   public async update(entity: Entity<any>): Promise<void> {
-    console.log(`Chegou aqui no UPDATE`)
     const t = await this._getTransaction();
 
     const options = {

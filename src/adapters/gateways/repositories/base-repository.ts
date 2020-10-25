@@ -66,16 +66,11 @@ export default class BaseRepository implements IRepository {
     }
 
     const entityName = e.constructor.name;
-    console.log('1')
-    console.log(e.id)
     const registered = this.identityMap.load(entityName, e.id);
-    console.log('3')
     if (registered) {
       this.uow.registerDirty(e);
     } else {
-      console.log(`4`)
       this.uow.registerNew(e);
-      console.log(`11`)
     }
   }
   
@@ -110,9 +105,7 @@ export default class BaseRepository implements IRepository {
     if (!this.uow) {
       throw new Error('There is no started transaction');
     }
-    console.log(`13`)
     await this.uow.commit();
-    console.log(`Depois do commit`)
     this.uow = undefined;
   }
 }

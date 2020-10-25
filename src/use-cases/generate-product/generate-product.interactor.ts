@@ -20,8 +20,6 @@ export class GenerateProductInteractor {
       description: data.description,
       price: data.price
     });
-    
-    console.log(`Product Result:`,productResult)
 
     if (!productResult.succeeded) {
       return this._presenter.show({
