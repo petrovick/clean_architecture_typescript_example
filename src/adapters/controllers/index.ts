@@ -10,3 +10,4 @@ export * from './product/http-destroy-product.ctrl';
 export * from './product/http-list-product.ctrl';
 
 export * from './customer/http-detail-customer.ctrl';
+export * from './customer/http-generate-customer.ctrl';

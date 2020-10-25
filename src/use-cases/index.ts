@@ -18,3 +18,4 @@ export * as DestroyProduct from './product/destroy-product/index';
 
 export * as GetCustomerData from './common/get-customer-data/index';
 export * as DetailCustomer from './customer/detail-customer/index';
+export * as GenerateCustomer from './customer/generate-customer/index';

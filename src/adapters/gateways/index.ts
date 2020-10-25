@@ -20,3 +20,4 @@ export const UpdateProductGateway = MixProductRepository(BaseRepository);
 export const DestroyProductGateway = MixProductRepository(BaseRepository);
 
 export const GetCustomerDataGateway = MixCustomerRepository(BaseRepository);
+export const GenerateCustomerGateway = MixCustomerRepository(BaseRepository);
